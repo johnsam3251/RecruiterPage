@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification Process</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/verify-style.css">
+    <link rel="icon" href="favicon.jpg" type="image/png">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="brand">
+                <span class="brand-text">EZhire</span>
+            </div>
+
+            <!-- PROGRESS -->
+            <div class="progress">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="step active">
+                <h1>Experience & Skills</h1>
+                <p class="sub">Tell us what you bring to the table.</p>
+
+                <div class="form-group">
+                    <label>Main skill or profession</label>
+                    <input type="text" placeholder="e.g. Customer Support, Driver, Developer" />
+                </div>
+
+                <div class="form-group">
+                    <label>Years of experience</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Less than 1 year</option>
+                        <option>1 – 3 years</option>
+                        <option>3 – 5 years</option>
+                        <option>5+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Brief work experience</label>
+                    <textarea placeholder="Where have you worked before?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you know how to use a computer for typing, email, or video calls?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Can you type at least 20 words per minute?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Have you ever helped someone over the phone, in person, or through email?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Do you feel comfortable talking to people politely and clearly?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Can you follow instructions and complete tasks on time?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <p id="pop"></p>
+
+                <div class="actions">
+                    <span></span>
+                    <button class="btn btn-primary" onclick="saveExperience(); nextStep(event)">Next</button>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step">
+                <h1>Interest & Commitment</h1>
+                <p class="sub">This helps us align expectations.</p>
+
+                <div class="form-group">
+                    <label>Are you able to work from home in a quiet place?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Are you willing to work flexible hours, including evenings or weekends?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Why are you interested in this role?</label>
+                    <textarea></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Available hours per week</label>
+                    <select>
+                        <option>10 – 20 hours</option>
+                        <option>20 – 30 hours</option>
+                        <option>30 – 40 hours</option>
+                        <option>40 – 60 hours</option>
+                        <option>60 – 80 hours</option>
+                        <option>Full time</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Are you willing to commit long-term?</label>
+                    <select>
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>Depends on conditions</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <p id="pop"></p>
+
+                <div class="actions">
+                    <button class="btn btn-outline" onclick="prevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="saveCommitment(); nextStep(event)">Continue</button>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step">
+                <h1>Identity Verification</h1>
+                <p class="sub">
+                    This confirms you are who you say you are.
+                </p>
+
+                <div class="form-group">
+                    <label>Full Legal Name</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>Social Security Number(SSN)</label>
+                    <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" />
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="10" />
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" />
+                </div>
+
+                <!-- <div class="form-group">
+                    <label>Government ID Number</label>
+                    <input type="text" />
+                </div> -->
+
+                <div class="form-group">
+                    <label>Upload ID Document(Front)</label>
+                    <input type="file" />
+                </div>
+
+                <div class="form-group">
+                    <label>Upload ID Document(Back)</label>
+                    <input type="file" />
+                </div>
+
+                <p id="pop"></p>
+
+                <div class="actions">
+                    <button class="btn btn-outline" onclick="prevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="saveIdentity(); nextStep(event)">Continue</button>
+                </div>
+            </div>
+
+            <!-- step 4 -->
+            <div class="step">
+                <h1>Key Security Questions</h1>
+                <p class="sub">
+                    Almost Done.
+                    After this, only your IDme verification is required.
+                </p>
+
+                <div class="form-group">
+                    <label>What is your mother’s maiden name?</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>In what city were you born? include the state.</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>What is your father’s full name?</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label>What is your mother’s full name?</label>
+                    <input type="text" />
+                </div>
+
+                <p id="pop"></p>
+
+                <div class="actions">
+                    <button class="btn btn-outline" onclick="prevStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep(event); submitVerification(event)">Start
+                        Verification</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./verify.js"></script>
+    <script>
+        const steps = document.querySelectorAll(".step");
+        const dots = document.querySelectorAll(".dot");
+        const pop = document.getElementById("pop");
+        let current = 0;
+
+        function updateUI() {
+            steps.forEach((s, i) => s.classList.toggle("active", i === current));
+            dots.forEach((d, i) => d.classList.toggle("active", i <= current));
+        }
+
+        function validateCurrentStep() {
+            const activeStep = steps[current];
+
+            const requiredInputs = activeStep.querySelectorAll(
+                "input[type='text'], input[type='email'], input[type='file'], input[type='tel']"
+            );
+
+            let valid = true;
+
+            requiredInputs.forEach(input => {
+                const isFile = input.type === "file";
+                const isEmpty = isFile
+                    ? input.files.length === 0
+                    : input.value.trim() === "";
+
+                if (isEmpty) {
+                    valid = false;
+                    input.style.borderColor = "#ef4444"; // red warning glow
+                } else {
+                    input.style.borderColor = "var(--border)";
+                }
+            });
+
+            if (!valid) {
+                pop.textContent = "Please fill in all required fields.";
+                pop.style.color = "#ef4444";
+            } else {
+                pop.textContent = "";
+            }
+
+            return valid;
+        }
+
+        function nextStep(e) {
+            e.preventDefault();
+
+            // validate THIS step before advancing
+            if (!validateCurrentStep()) return;
+
+            if (current < steps.length - 1) {
+                current++;
+                updateUI();
+            }
+        }
+
+        function prevStep() {
+            if (current > 0) {
+                current--;
+                updateUI();
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

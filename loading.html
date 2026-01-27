@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Securing Session</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/loading-style.css" />
+    <link rel="icon" href="favicon.jpg" type="image/png">
+
+</head>
+
+<body>
+
+    <div class="loader">
+        <div class="circle">
+            <div class="brand">EZhire</div>
+        </div>
+
+        <div class="text">
+            Initializing encrypted verification layer…
+        </div>
+
+        <div class="timer">
+            Securing connection <span id="count">3</span>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nextPage = params.get("next") || "verify.html";
+
+        let count = 3;
+        const counter = document.getElementById("count");
+
+        const interval = setInterval(() => {
+            count--;
+            counter.textContent = count;
+
+            if (count === 0) {
+                clearInterval(interval);
+                window.location.href = nextPage;
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
